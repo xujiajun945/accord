@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xujiajun.accord.base.dao.DemoMapper">
+
+	<resultMap id="BaseResultMap" type="com.xujiajun.accord.model.Demo">
+		<id property="id" column="id"/>
+		<result property="info" column="info"/>
+		<result property="createTime" column="create_time"/>
+		<result property="deleted" column="is_delete"/>
+	</resultMap>
+
+	<sql id="Base_Column_List">
+		id, info, create_time, is_delete
+	</sql>
+
+	<select id="getById" resultMap="BaseResultMap">
+		SELECT
+			<include refid="Base_Column_List"/>
+		FROM
+			demo
+		WHERE
+			id = #{id}
+	</select>
+
+	<select id="listAll" resultMap="BaseResultMap">
+		SELECT
+			<include refid="Base_Column_List"/>
+		FROM
+			demo
+	</select>
+
+	<select id="countByQuery" resultType="java.lang.Integer">
+		SELECT
+			COUNT(*)
+		FROM
+			demo
+	</select>
+
+	<select id="listByQuery" resultMap="BaseResultMap">
+		SELECT
+			<include refid="Base_Column_List"/>
+		FROM
+			demo
+		LIMIT #{position}, #{rows}
+	</select>
+</mapper>

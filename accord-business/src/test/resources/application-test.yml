@@ -1,0 +1,13 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: accord-business-test
+
+accord-base:
+  data-source:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://rm-bp1xq269c0b577qt9go.mysql.rds.aliyuncs.com:3306/test?useAffectedRows=true&autoReconnect=true&useUnicode=true&characterEncoding=utf-8
+    username: bnqrds_dbj01
+    password: Summer@20
